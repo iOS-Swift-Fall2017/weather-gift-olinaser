@@ -107,9 +107,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-5b-dEV">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-5b-dEV">
                                 <rect key="frame" x="0.0" y="-6" width="414" height="225"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L53-D3-gZU">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="225"/>
@@ -149,7 +148,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rjK-LB-goJ">
-                                <rect key="frame" x="0.0" y="227" width="414" height="470"/>
+                                <rect key="frame" x="0.0" y="299" width="414" height="398"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -203,11 +202,78 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DQt-Oc-MUy">
+                                <rect key="frame" x="0.0" y="227" width="414" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="t8U-Rt-4Qc"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="G2I-DD-Cl9">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HourlyCell" id="c1n-ww-9HG" customClass="HourlyWeatherCell" customModule="WeatherGift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="7" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-h3-LzC">
+                                                    <rect key="frame" x="0.0" y="2" width="50" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqJ-vv-xF2">
+                                                    <rect key="frame" x="0.0" y="31" width="50" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small-cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="eUe-TN-O1e">
+                                                    <rect key="frame" x="14" y="16" width="20" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raindrop" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-GB-EEp">
+                                                    <rect key="frame" x="34" y="16" width="6" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adZ-IY-UT6">
+                                                    <rect key="frame" x="33" y="24" width="17" height="6"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="hourlyIcon" destination="eUe-TN-O1e" id="XbY-EU-THi"/>
+                                            <outlet property="hourlyPrecipProb" destination="adZ-IY-UT6" id="YYg-hQ-wfI"/>
+                                            <outlet property="hourlyTemp" destination="CqJ-vv-xF2" id="B2u-N0-vBN"/>
+                                            <outlet property="hourlyTime" destination="8oK-h3-LzC" id="I8d-wP-5BI"/>
+                                            <outlet property="rainDropImage" destination="oi9-GB-EEp" id="AjW-Bo-8Jv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DQt-Oc-MUy" firstAttribute="top" secondItem="Ieh-5b-dEV" secondAttribute="bottom" constant="8" id="5ol-1E-Poq"/>
+                            <constraint firstItem="DQt-Oc-MUy" firstAttribute="trailing" secondItem="1Ca-xF-eQY" secondAttribute="trailing" id="i4K-97-Mww"/>
+                            <constraint firstItem="DQt-Oc-MUy" firstAttribute="leading" secondItem="1Ca-xF-eQY" secondAttribute="leading" id="ySJ-Mm-dpd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1Ca-xF-eQY"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="DQt-Oc-MUy" id="xUb-Ti-acw"/>
                         <outlet property="currentImage" destination="L53-D3-gZU" id="HV1-Zs-d5w"/>
                         <outlet property="dateLabel" destination="bE5-ZP-UMh" id="pxx-hf-OIS"/>
                         <outlet property="locationLabel" destination="7XB-Lz-fhG" id="8Wg-XN-QWU"/>
@@ -223,5 +289,7 @@
     </scenes>
     <resources>
         <image name="clear-day" width="384" height="384"/>
+        <image name="raindrop" width="18" height="20"/>
+        <image name="small-cloudy" width="384" height="384"/>
     </resources>
 </document>

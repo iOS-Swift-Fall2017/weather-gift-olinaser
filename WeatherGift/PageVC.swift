@@ -25,9 +25,10 @@ class PageVC: UIPageViewController {
         delegate = self
         dataSource = self
         
-        var newLocation = WeatherLocation()
+        var newLocation = WeatherLocaiton(name: <#T##String#>, coordinates: <#T##String#>)
         newLocation.name = ""
         locationsArray.append(newLocation)
+        loadLocations()
         
         setViewControllers([createDetailVC(forPage: 0)], direction: .forward, animated: false, completion: nil)
         
@@ -40,6 +41,17 @@ class PageVC: UIPageViewController {
         configureListButton()
     }
     
+    func loadLocations() {
+        guard let locationsEncoded = UserDefaults.standard.value(forKey:"locationsArray") as? Data else {
+            print("777")
+        }
+        let decoder = JSONDecoder()
+        if let locationsArray = try? decoder.decode(Array.self, from: locationsEncoded) as [WeatherLocaiton]
+        self.locationsArray = locationsArray
+    } else {
+    print("2989823r8932")
+    }
+}
     func configurePageControl() {
         let pageControlHeight: CGFloat = barButtonHeight
         let pageControlWidth: CGFloat = view.frame.width - (barButtonWidth * 2)
@@ -54,7 +66,7 @@ class PageVC: UIPageViewController {
         pageControl.backgroundColor = UIColor.white
         pageControl.numberOfPages = locationsArray.count
         pageControl.currentPage = currentPage
-        pageControl.addTarget(self, action: #selector(pageControlPressed), for: .touchUpInside)
+//        pageControl.addTarget(self, action: #selector(pageControlPressed), for: .touchUpInside)
         
         view.addSubview(pageControl)
         
@@ -142,16 +154,17 @@ extension PageVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 //        func pageControlPressed() {
 //            guard let currentViewController = self.viewControllers![0] as? DetailVC else
 //            {return}
-//                currentPage = currentViewController.currentPage
-//                if pageControl.currentPage < currentPage {
-//                    setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .reverse, animated: true, completion: nil)
-//                } else if pageControl.currentPage > currentPage {
-//                    setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .forward, animated: true, completion: nil)
-//                }
+//            currentPage = currentViewController.currentPage
+//            if pageControl.currentPage < currentPage {
+//                setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .reverse, animated: true, completion: nil)
+//            } else if pageControl.currentPage > currentPage {
+//                setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .forward, animated: true, completion: nil)
 //            }
-//
 //        }
-//
-//    }
-
         
+    }
+    
+}
+
+
+
